@@ -59,7 +59,7 @@ export default function Projetos({ projetos }) {
   <CardProjetos>Item 3</CardProjetos>
   <CardProjetos>Item 4</CardProjetos>
 </Carousel>;
-<pre>{ JSON.stringify(projetos, null, 4)}</pre>
+{/* <pre>{ JSON.stringify(projetos, null, 4)}</pre> */}
         </BlocoProjetos>
     )
 }
