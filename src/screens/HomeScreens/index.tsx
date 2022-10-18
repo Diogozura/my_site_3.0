@@ -2,7 +2,9 @@
 
 import styled from "styled-components";
 import Header from "../../components/Header";
+import Topo from "../../components/Header/Header2";
 import Banner from "./Banner";
+import Projetos from "./Projetos";
 
 
 
@@ -23,7 +25,9 @@ export default function HomeScreen() {
     return (
         <>
             <Header />
-            <Banner/>
+           
+            <Banner />
+            <Projetos/>
             {/* <Conteudo>
             <h1>Bem vindo a home</h1>
               

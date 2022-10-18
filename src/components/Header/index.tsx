@@ -25,7 +25,7 @@ interface Props {
 }
 
 const drawerWidth = 240;
-const navItems = ['Projetos', 'GitHub', 'Contato'];
+const navItems = ['#Projetos', 'GitHub', 'Contato'];
 
 export default function DrawerAppBar(props: Props) {
   const { window } = props;
@@ -68,7 +68,7 @@ export default function DrawerAppBar(props: Props) {
           >
             <MenuIcon />
                   </IconButton>
-                  <Image src="./Logo.webp" alt="Logo Diogo Zura"  width="40" height="40"/>
+                  <Image src="/Logo.webp"    width="40" height="40"/>
                   {/* <AdbIcon sx={{ display: { md: 'flex' }, mr: 1 }} /> */}
           <Typography
             variant="h1"
