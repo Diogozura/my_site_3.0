@@ -11,8 +11,6 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import AdbIcon from '@mui/icons-material/Adb';
 import Image from 'next/image';
 import LinkPage from '../Link';
 
@@ -68,7 +66,7 @@ export default function DrawerAppBar(props: Props) {
           >
             <MenuIcon />
                   </IconButton>
-                  <Image src="/Logo.webp"    width="40" height="40"/>
+                  <Image src="/Logo.webp" alt="Logo do zura" width="40" height="40"/>
                   {/* <AdbIcon sx={{ display: { md: 'flex' }, mr: 1 }} /> */}
           <Typography
             variant="h1"

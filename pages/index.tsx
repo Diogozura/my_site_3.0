@@ -1,2 +1,2 @@
-import HomeScreen from "../src/screens/HomeScreens";
-export default HomeScreen
+export { default, getStaticProps } from '../src/screens/HomeScreens';
+

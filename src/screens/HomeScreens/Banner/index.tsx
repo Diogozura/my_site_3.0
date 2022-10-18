@@ -11,8 +11,7 @@ export default function Banner() {
             </Titulo>
             </Animated>
             <Animated Animated animationIn="fadeInRight" animationInDuration={3000} isVisible={true}>
-                <Image src="./src/img/astronauta.gif" alt="Astronauta" width="500" height="500" />
-                
+                <Image src="/astronauta.gif" alt="Astronauta" width="500" height="500" />
             </Animated>
             
         </BlocoBanner>

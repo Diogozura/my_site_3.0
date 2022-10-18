@@ -2,7 +2,7 @@
 
 import styled from "styled-components";
 import Header from "../../components/Header";
-import Topo from "../../components/Header/Header2";
+import { cmsService } from "../../infra/cms/cmsService";
 import Banner from "./Banner";
 import Projetos from "./Projetos";
 
@@ -21,13 +21,15 @@ const Conteudo = styled.main`
 `
 
 
-export default function HomeScreen() {
+
+
+export default function HomeScreen({projetos}) {
     return (
         <>
             <Header />
            
             <Banner />
-            <Projetos/>
+            <Projetos projetos={projetos}/>
             {/* <Conteudo>
             <h1>Bem vindo a home</h1>
               
@@ -37,3 +39,34 @@ export default function HomeScreen() {
         </>
     )
 }
+
+export async function getStaticProps() {
+    
+    const contentQuery = `
+    query{
+        allProjetos{
+        id
+        nomeProjeto
+        capaProjeto {
+          id
+          alt
+          url
+          format
+        }
+    }
+    }
+    `
+
+
+    const { data } = await cmsService({
+        query: contentQuery
+    })
+    console.log("dados CMS", data)
+
+    return {
+        props: {
+            projetos: data
+        }, // will be passed to the page component as props
+      }
+}
+
