@@ -18,9 +18,11 @@
     "@mui/material": "^5.10.9",
     "@mui/styled-engine-sc": "^5.10.6",
     "next": "12.3.1",
+    "next-videos": "1.5.0",
     "react": "18.2.0",
     "react-animated-css": "^1.2.1",
     "react-dom": "18.2.0",
+    "sharp": "^0.31.1",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {

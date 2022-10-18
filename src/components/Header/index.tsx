@@ -68,7 +68,7 @@ export default function DrawerAppBar(props: Props) {
           >
             <MenuIcon />
                   </IconButton>
-                  <Image src="/Logo.png"    width="40" height="40"/>
+                  <Image src="./Logo.webp" alt="Logo Diogo Zura"  width="40" height="40"/>
                   {/* <AdbIcon sx={{ display: { md: 'flex' }, mr: 1 }} /> */}
           <Typography
             variant="h1"
