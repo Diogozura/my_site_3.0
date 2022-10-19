@@ -25,10 +25,10 @@ interface Props {
 const drawerWidth = 240;
 const navItems = ['Missões ', 'GitHub', 'Contato'];
 
-export default function DrawerAppBar(props: Props) {
+export default function DrawerAppBar({header },props: Props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-
+  console.log('cidadão do topo ', header.logo)
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -66,7 +66,7 @@ export default function DrawerAppBar(props: Props) {
           >
             <MenuIcon />
                   </IconButton>
-                  <Image src="/Logo.webp" alt="Logo do zura" width="40" height="40"/>
+                  <Image src={header.logo?.url.substr(31)} alt="Logo do zura" width="40" height="40"/>
                   {/* <AdbIcon sx={{ display: { md: 'flex' }, mr: 1 }} /> */}
           <Typography
             variant="h1"

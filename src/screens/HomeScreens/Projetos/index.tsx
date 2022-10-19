@@ -1,11 +1,12 @@
 import styled from "styled-components"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRocket } from "@fortawesome/free-solid-svg-icons"
-
 import LinkPage from "../../../components/Link"
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Image from "next/image";
+import { Title2 } from "../../../components/Title";
+
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -28,30 +29,20 @@ const responsive = {
 
 
 export default function Projetos({ projetos }) {
-  console.log('Projetos', projetos)
+  // console.log('Projetos', projetos)
     return (
         <BlocoProjetos id="Projetos">
    
-            {/* <h2 >Missions <FontAwesomeIcon icon={faRocket} className="fa-1x fa-inverse" /></h2> */}
-        <aside>
-          {projetos.allProjetos.map((titulos) => (
-            <h2 key={ titulos.id}>{titulos.nomeProjeto }</h2>
-          )
-            
-          )}
-        
-                <img />
-                <h3>teste</h3>
-                <LinkPage href={""} name={"link"} color={"#FFFFFF"} />
-            </aside>
+            <Title2>Missions <FontAwesomeIcon icon={faRocket} className="fa-1x fa-inverse" /></Title2>
+  
         <Carousel responsive={responsive}>
-          {projetos.allProjetos.map((titulos) => (
+          {projetos.map((titulos) => (
             <CardProjetos key={titulos.id}>
-               <Image src={titulos.capaProjeto.url.substr(31)} alt="Astronauta" width="350" height="170" />
+               <Image src={titulos?.capaProjeto?.url.substr(31)} alt="Astronauta" width="350" height="170" />
               <h2 >{titulos.nomeProjeto}</h2>
-              <p> Com slice : {titulos.capaProjeto.url.slice(titulos.capaProjeto.url.length - 200)}</p>
+              {/* <p> Com slice : {titulos.capaProjeto.url.slice(titulos.capaProjeto.url.length - 200)}</p> */}
               <br/>
-              <p>Com substr : {titulos.capaProjeto.url.substr(31)}</p>
+              {/* <p>Com substr : {titulos.capaProjeto.url.substr(31)}</p> */}
               {/* <LinkPage href={""} name={"Saiba mais"} color={"#000000"} border={"solid"} margin={"10px"} hoverBg={"#00aeff90"} /> */}
           </CardProjetos>
            
@@ -63,7 +54,6 @@ export default function Projetos({ projetos }) {
   <CardProjetos>Item 3</CardProjetos>
   <CardProjetos>Item 4</CardProjetos>
 </Carousel>;
-<pre>{ JSON.stringify(projetos, null, 4)}</pre>
         </BlocoProjetos>
     )
 }
@@ -79,8 +69,8 @@ const CardProjetos = styled.article`
 
 const BlocoProjetos = styled.section`
     padding: 20px;
-    background-color: blue;
+    background-color: #02020293;
     width: 100%;
-    height: 700px;
-    margin-top: 3em;
+    height: 100%;
+    margin-bottom: 3em;
 `

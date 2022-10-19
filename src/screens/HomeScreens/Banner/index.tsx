@@ -1,8 +1,18 @@
 import styled from "styled-components";
 import Image from "next/image";
 import { Animated } from "react-animated-css";
+import Lottie from 'react-lottie';
+import animationData from '../../../lotties/spaceman.json';
 
 export default function Banner() {
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: animationData,
+        rendererSettings: {
+          preserveAspectRatio: "xMidYMid slice"
+        }
+      };
     return (
         <BlocoBanner>
              <Animated Animated animationIn="fadeInLeft" animationInDuration={3000} isVisible={true}>
@@ -11,7 +21,12 @@ export default function Banner() {
             </Titulo>
             </Animated>
             <Animated Animated animationIn="fadeInRight" animationInDuration={3000} isVisible={true}>
-                <Image src="/astronauta.gif" alt="Astronauta" width="500" height="500" />
+                
+                <Lottie 
+	    options={defaultOptions}
+        height={400}
+        width={400}
+      />
             </Animated>
             
         </BlocoBanner>

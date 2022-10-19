@@ -5,6 +5,8 @@ import Header from "../../components/Header";
 import { cmsService } from "../../infra/cms/cmsService";
 import Banner from "./Banner";
 import Projetos from "./Projetos";
+import Servicos from "./Servicos";
+import Skill from "./Skill";
 
 
 
@@ -23,19 +25,23 @@ const Conteudo = styled.main`
 
 
 
-export default function HomeScreen({projetos}) {
+export default function HomeScreen({header, projetos, ferramentas }) {
     return (
         <>
-            <Header />
+            <Header header={header } />
            
             <Banner />
-            <Projetos projetos={projetos}/>
+            <Projetos projetos={projetos} />
+            <Skill ferramentas={ferramentas} />
+            <Servicos/>
             {/* <Conteudo>
             <h1>Bem vindo a home</h1>
               
                 
             </Conteudo>
       */}
+            {/* <pre>{ JSON.stringify(ferramentas, null, 4)}</pre> */}
+
         </>
     )
 }
@@ -44,28 +50,50 @@ export async function getStaticProps() {
     
     const contentQuery = `
     query{
-        allProjetos{
-        id
-        nomeProjeto
-        capaProjeto {
+        allProjetos {
           id
-          alt
-          url
-          format
+             capaProjeto{
+           id
+                 alt 
+           url
+           }
+         nomeProjeto
+         linkProjeto
         }
-    }
-    }
+       
+       allSkills{
+         id
+         imgFerramenta{
+           id
+           url
+           alt
+         }
+       linkFerramenta
+       }
+       
+       header{
+       logo {
+         id
+         url
+       }
+       }
+     }
     `
 
 
     const { data } = await cmsService({
         query: contentQuery
     })
-    console.log("dados CMS", data)
+
+    const header = data.header
+    const projetos = data.allProjetos
+    const ferramentas = data.allSkills
 
     return {
         props: {
-            projetos: data
+            header: header,
+            projetos: projetos,
+            ferramentas: ferramentas
         }, // will be passed to the page component as props
       }
 }
