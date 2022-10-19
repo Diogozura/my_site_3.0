@@ -8,9 +8,15 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  images: {
+  // images: {
+  //   loader: 'akamai',
+  //   path: 'https://diogozura.com/',
+  //   dangerouslyAllowSVG: true,
+  //   contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+  // },
+   images: {
     loader: 'akamai',
-    path: 'https://diogozura.com/',
+    path: 'https://www.datocms-assets.com/',
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },

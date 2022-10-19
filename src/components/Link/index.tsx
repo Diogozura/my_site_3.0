@@ -12,16 +12,18 @@ interface Style{
     hoverBg?: string,
     color: string,
     padding?: string,
+    border?: string,
     margin?: string
 }
 
 
 const A = styled.a<Style>`
-    color: #FFFF;
+    color: ${props => props.color};
     background-color: ${props => props.bg};
     padding: 10px;
     border-radius: 10px;
-    margin: ${props=> props.margin};
+    border:${props => props.border};
+    margin:${props=> props.margin};
     cursor: pointer;
     text-decoration: none;
     animation-delay: 2s;
@@ -32,15 +34,16 @@ const A = styled.a<Style>`
 `
 
 
-export default function LinkPage({ name , href , bg, hoverBg,padding, margin, onClick, ...props}:Props) {
+export default function LinkPage({ name , href , bg, hoverBg,padding,color,border, margin, onClick, ...props}:Props) {
     return (
         <>
             <Link href={href} prefetch={false} passHref >
                 <A {...props}
                     bg={bg}
                     hoverBg={hoverBg}
-                   
+                    color={color}
                     padding={padding}
+                    border={border}
                     margin={margin}
                     onClick={onClick}
                 >

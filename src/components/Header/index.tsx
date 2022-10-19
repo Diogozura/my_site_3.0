@@ -23,7 +23,7 @@ interface Props {
 }
 
 const drawerWidth = 240;
-const navItems = ['#Projetos', 'GitHub', 'Contato'];
+const navItems = ['Missões ', 'GitHub', 'Contato'];
 
 export default function DrawerAppBar(props: Props) {
   const { window } = props;
@@ -70,7 +70,7 @@ export default function DrawerAppBar(props: Props) {
                   {/* <AdbIcon sx={{ display: { md: 'flex' }, mr: 1 }} /> */}
           <Typography
             variant="h1"
-            component="div"
+            component="div" 
             sx={{
                 m: 2,
                 flexGrow: 1,
@@ -88,7 +88,7 @@ export default function DrawerAppBar(props: Props) {
           
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-               <LinkPage key={item} href={item} name={item} color={''} />
+               <LinkPage key={item} href={item} name={item} color={'#FFFFFF'} />
                 
             ))}
           </Box>

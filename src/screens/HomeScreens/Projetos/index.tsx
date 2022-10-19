@@ -32,7 +32,7 @@ export default function Projetos({ projetos }) {
     return (
         <BlocoProjetos id="Projetos">
    
-            <h2 >Missions <FontAwesomeIcon icon={faRocket} className="fa-1x fa-inverse" /></h2>
+            {/* <h2 >Missions <FontAwesomeIcon icon={faRocket} className="fa-1x fa-inverse" /></h2> */}
         <aside>
           {projetos.allProjetos.map((titulos) => (
             <h2 key={ titulos.id}>{titulos.nomeProjeto }</h2>
@@ -42,13 +42,17 @@ export default function Projetos({ projetos }) {
         
                 <img />
                 <h3>teste</h3>
-                <LinkPage href={""} name={"link"} color={""} />
+                <LinkPage href={""} name={"link"} color={"#FFFFFF"} />
             </aside>
         <Carousel responsive={responsive}>
           {projetos.allProjetos.map((titulos) => (
             <CardProjetos key={titulos.id}>
-               <Image src="./src/img/astronauta.gif" alt="Astronauta" width="500" height="500" />
-               <h2 >{titulos.nomeProjeto}</h2>
+               <Image src={titulos.capaProjeto.url.substr(31)} alt="Astronauta" width="350" height="170" />
+              <h2 >{titulos.nomeProjeto}</h2>
+              <p> Com slice : {titulos.capaProjeto.url.slice(titulos.capaProjeto.url.length - 200)}</p>
+              <br/>
+              <p>Com substr : {titulos.capaProjeto.url.substr(31)}</p>
+              {/* <LinkPage href={""} name={"Saiba mais"} color={"#000000"} border={"solid"} margin={"10px"} hoverBg={"#00aeff90"} /> */}
           </CardProjetos>
            
           )
@@ -59,18 +63,18 @@ export default function Projetos({ projetos }) {
   <CardProjetos>Item 3</CardProjetos>
   <CardProjetos>Item 4</CardProjetos>
 </Carousel>;
-{/* <pre>{ JSON.stringify(projetos, null, 4)}</pre> */}
+<pre>{ JSON.stringify(projetos, null, 4)}</pre>
         </BlocoProjetos>
     )
 }
 
 const CardProjetos = styled.article`
-  background-color: antiquewhite;
+  background-color: #EBEBEB;
   padding: 10px;
-  margin: 0 10px;
   border-radius: 10px;
-  width: 400px;
-  height: 500px;
+  width: 380px;
+  height: 430px;
+  color:#000000;
 `
 
 const BlocoProjetos = styled.section`
