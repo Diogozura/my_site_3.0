@@ -87,7 +87,8 @@ export async function getStaticProps() {
             header: header,
             projetos: projetos,
             ferramentas: ferramentas
-        }, // will be passed to the page component as props
+      }, // will be passed to the page component as props
+      revalidate: 10,
       }
 }
 
