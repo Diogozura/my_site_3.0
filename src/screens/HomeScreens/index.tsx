@@ -1,6 +1,8 @@
 /* eslint-disable react/no-children-prop */
 
+import Head from "next/head";
 import styled from "styled-components";
+import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import { cmsService } from "../../infra/cms/cmsService";
 import Banner from "./Banner";
@@ -9,39 +11,29 @@ import Servicos from "./Servicos";
 import Skill from "./Skill";
 
 
-
-
-const Conteudo = styled.main`
-    width: 700px;
-    margin: 1rem auto;
-    text-align: center;
-    display: grid;
-
-    @media only screen and (max-width: 700px) {
-        width: 80%;
-    }
-`
+interface Props{
+  header: string,
+  projetos: string,
+  ferramentas: string,
+}
 
 
 
 
-export default function HomeScreen({header, projetos, ferramentas }) {
+export default function HomeScreen({header, projetos, ferramentas}:Props) {
     return (
-        <>
-            <Header header={header } />
-           
+      <>
+        <Head>
+          <title>
+            Diogo Zura - Desenvolvedor Front-end
+          </title>
+        </Head>
+            <Header header={header} />
             <Banner />
             <Projetos projetos={projetos} />
             <Skill ferramentas={ferramentas} />
             <Servicos/>
-            {/* <Conteudo>
-            <h1>Bem vindo a home</h1>
-              
-                
-            </Conteudo>
-      */}
-            {/* <pre>{ JSON.stringify(ferramentas, null, 4)}</pre> */}
-
+          <Footer/>
         </>
     )
 }
@@ -53,11 +45,12 @@ export async function getStaticProps() {
         allProjetos {
           id
              capaProjeto{
-           id
-                 alt 
-           url
+                  id
+                  alt 
+                  url
            }
          nomeProjeto
+         descricao
          linkProjeto
         }
        

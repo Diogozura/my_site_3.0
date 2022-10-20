@@ -19,31 +19,50 @@ interface Props {
    * Injected by the documentation to work in an iframe.
    * You won't need it on your project.
    */
+
   window?: () => Window;
 }
 
 const drawerWidth = 240;
-const navItems = ['Missões ', 'GitHub', 'Contato'];
+const navItems = [{
+  id: 1,
+  label: 'Missões',
+  path: '#missoes',
+  // icon: HomeIcon
+},
+{
+  id: 2,
+  label: 'Github',
+  path: 'https://github.com/diogozura',
+  // icon: HomeIcon
+  },
+  {
+      id: 3,
+      label: 'Contato',
+      path: 'https://t.me/Diogozura',
+      // icon: HomeIcon
+  }
+];
 
-export default function DrawerAppBar({header },props: Props) {
+export default function DrawerAppBar({ header}, props: Props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  console.log('cidadão do topo ', header.logo)
+  
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center',bgcolor:'#00000097' }}>
+      <Typography variant="h6" sx={{ color: '#ffffff', my: 2 }}>
         Diogo Zura
       </Typography>
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
+          <ListItem key={item.id} disablePadding>
             <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
+              <LinkPage key={item.id} href={item.path} name={item.label} color={'#FFFFFF'} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -88,7 +107,7 @@ export default function DrawerAppBar({header },props: Props) {
           
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-               <LinkPage key={item} href={item} name={item} color={'#FFFFFF'} />
+               <LinkPage key={item.id} href={item.path} name={item.label} color={'#FFFFFF'} />
                 
             ))}
           </Box>

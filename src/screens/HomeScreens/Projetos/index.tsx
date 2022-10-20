@@ -6,6 +6,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Image from "next/image";
 import { Title2 } from "../../../components/Title";
+import { Key, ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } from "react";
 
 const responsive = {
   superLargeDesktop: {
@@ -29,31 +30,29 @@ const responsive = {
 
 
 export default function Projetos({ projetos }) {
-  // console.log('Projetos', projetos)
+  
     return (
-        <BlocoProjetos id="Projetos">
+        <BlocoProjetos id="missoes">
    
-            <Title2>Missions <FontAwesomeIcon icon={faRocket} className="fa-1x fa-inverse" /></Title2>
+            <Title2>Missions <FontAwesomeIcon icon={faRocket} className="fa-1x" /></Title2>
   
         <Carousel responsive={responsive}>
-          {projetos.map((titulos) => (
+          {projetos.map((titulos: { id: Key | null | undefined; capaProjeto: { url: string; }; nomeProjeto: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; }) => (
             <CardProjetos key={titulos.id}>
-               <Image src={titulos?.capaProjeto?.url.substr(31)} alt="Astronauta" width="350" height="170" />
+
+              <Image src={titulos?.capaProjeto?.url.substr(31)} alt={titulos?.alt} width="350" height="170" />
+              
               <h2 >{titulos.nomeProjeto}</h2>
-              {/* <p> Com slice : {titulos.capaProjeto.url.slice(titulos.capaProjeto.url.length - 200)}</p> */}
               <br/>
-              {/* <p>Com substr : {titulos.capaProjeto.url.substr(31)}</p> */}
-              {/* <LinkPage href={""} name={"Saiba mais"} color={"#000000"} border={"solid"} margin={"10px"} hoverBg={"#00aeff90"} /> */}
+              <DescricaoProjeto>{titulos?.descricao}</DescricaoProjeto>
+              <br/>
+              <LinkPage href={""} name={"Saiba mais"} color={"#000000"} border={"solid"} margin={"10px"} hoverBg={"#3434346c"} />
           </CardProjetos>
            
           )
             
           )}
-  <CardProjetos>Item 1</CardProjetos>
-  <CardProjetos>Item 2</CardProjetos>
-  <CardProjetos>Item 3</CardProjetos>
-  <CardProjetos>Item 4</CardProjetos>
-</Carousel>;
+</Carousel>
         </BlocoProjetos>
     )
 }
@@ -62,9 +61,16 @@ const CardProjetos = styled.article`
   background-color: #EBEBEB;
   padding: 10px;
   border-radius: 10px;
-  width: 380px;
+  max-width: 380px;
   height: 430px;
   color:#000000;
+  text-align: center;
+`
+const DescricaoProjeto = styled.p`
+  text-align: justify;
+  padding: 10px;
+  margin-bottom: 1em;
+
 `
 
 const BlocoProjetos = styled.section`
