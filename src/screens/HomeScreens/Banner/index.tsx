@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import Image from "next/image";
-import { Animated } from "react-animated-css";
+// import Image from "next/image";
+// import { Animated } from "react-animated-css";
 import Lottie from 'react-lottie';
-import animationData from '../../../lotties/spaceman.json';
+import animationData from '../../../lotties/rocket-launch-animation-for-website.json';
 import React from "react";
+
 
 export default function Banner() {
  
@@ -18,27 +19,28 @@ export default function Banner() {
       };
     return (
         <BlocoBanner>
-             <Animated Animated animationIn="fadeInLeft" animationInDuration={3000} isVisible={true}>
+            
             <Titulo>
                 Seja bem vindo
             </Titulo>
-            </Animated>
             
-            <Animated Animated animationIn="fadeInRight" animationInDuration={3000} isVisible={true}>
-                <Lottie 
+            
+            <div>
+            <Lottie 
 	    options={defaultOptions}
-        height={400}
-        width={400}
+        height={350}
+        width={350}
       />
+            </div>
+                
             
-            </Animated>
+            
         </BlocoBanner>
      
     )
 }
 
 const BlocoBanner = styled.section`
-    
 display: flex;
 align-items: center;
 justify-content: space-around;

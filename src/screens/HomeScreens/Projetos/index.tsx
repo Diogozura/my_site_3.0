@@ -6,7 +6,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Image from "next/image";
 import { Title2 } from "../../../components/Title";
-import { Key, ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } from "react";
+
 
 const responsive = {
   superLargeDesktop: {
@@ -15,15 +15,15 @@ const responsive = {
     items: 5
   },
   desktop: {
-    breakpoint: { max: 3000, min: 1024 },
+    breakpoint: { max: 3000, min: 1210 },
     items: 3
   },
   tablet: {
-    breakpoint: { max: 1024, min: 464 },
+    breakpoint: { max: 1210, min: 820 },
     items: 2
   },
   mobile: {
-    breakpoint: { max: 464, min: 0 },
+    breakpoint: { max: 802, min: 0 },
     items: 1
   }
 };
@@ -34,10 +34,12 @@ export default function Projetos({ projetos }) {
     return (
         <BlocoProjetos id="missoes">
    
-            <Title2>Missions <FontAwesomeIcon icon={faRocket} className="fa-1x" /></Title2>
+        <Title2>Missions
+          <FontAwesomeIcon icon={faRocket} className="fa-1x" />
+        </Title2>
   
         <Carousel responsive={responsive}>
-          {projetos.map((titulos: { id: Key | null | undefined; capaProjeto: { url: string; }; nomeProjeto: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; }) => (
+          {projetos.map((titulos) => (
             <CardProjetos key={titulos.id}>
 
               <Image src={titulos?.capaProjeto?.url.substr(31)} alt={titulos?.alt} width="350" height="170" />
@@ -46,7 +48,7 @@ export default function Projetos({ projetos }) {
               <br/>
               <DescricaoProjeto>{titulos?.descricao}</DescricaoProjeto>
               <br/>
-              <LinkPage href={""} name={"Saiba mais"} color={"#000000"} border={"solid"} margin={"10px"} hoverBg={"#3434346c"} />
+              <LinkPage href={titulos?.linkProjeto} name={"Saiba mais"} color={"#000000"} border={"solid"} margin={"10px"} hoverBg={"#3434346c"} />
           </CardProjetos>
            
           )
