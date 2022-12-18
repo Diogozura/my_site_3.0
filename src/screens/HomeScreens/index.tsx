@@ -25,6 +25,7 @@ export default function HomeScreen({header, projetos, ferramentas}:Props) {
       <>
         <Head>
           <title>
+            a
             Diogo Zura - Desenvolvedor Front-end
           </title>
         </Head>
