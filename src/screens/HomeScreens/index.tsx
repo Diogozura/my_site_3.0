@@ -19,7 +19,8 @@ interface Props{
 
 
 
-export default function HomeScreen({header, projetos, ferramentas}:Props) {
+export default function HomeScreen({ header, projetos, ferramentas }: Props) {
+  console.log(header, projetos, ferramentas)
     return (
       <>
         <Head>

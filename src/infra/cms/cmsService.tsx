@@ -26,7 +26,7 @@ export async function cmsService({
             data:pageContentResponse.data
         }
     } catch (err) {
-        throw new Error(err.message)
+        console.log(err)
 }
   
 }
