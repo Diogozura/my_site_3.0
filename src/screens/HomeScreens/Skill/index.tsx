@@ -34,7 +34,7 @@ const MySkillpicture = styled.picture`
     justify-content: space-around;
 `
 const MySkill = styled.section`
-background-color: lightblue;
+background-color: #2f2f2f;
 text-align: center;
 margin: auto;
 padding: 10px;

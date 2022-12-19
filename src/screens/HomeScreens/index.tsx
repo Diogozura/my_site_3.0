@@ -1,7 +1,6 @@
 /* eslint-disable react/no-children-prop */
 
 import Head from "next/head";
-import styled from "styled-components";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import { cmsService } from "../../infra/cms/cmsService";
@@ -20,7 +19,8 @@ interface Props{
 
 
 
-export default function HomeScreen({header, projetos, ferramentas}:Props) {
+export default function HomeScreen({ header, projetos, ferramentas }: Props) {
+  console.log(header, projetos, ferramentas)
     return (
       <>
         <Head>
@@ -62,7 +62,6 @@ export async function getStaticProps() {
            url
            alt
          }
-       linkFerramenta
        }
        
        header{
@@ -74,14 +73,13 @@ export async function getStaticProps() {
      }
     `
 
-
     const { data } = await cmsService({
         query: contentQuery
     })
 
     const header = data.header
-    const projetos = data.allProjetos
-    const ferramentas = data.allSkills
+    const projetos = data?.allProjetos
+    const ferramentas = data?.allSkills
 
     return {
         props: {
@@ -89,7 +87,7 @@ export async function getStaticProps() {
             projetos: projetos,
             ferramentas: ferramentas
       }, // will be passed to the page component as props
-      revalidate: 10,
+      revalidate: 60,
       }
 }
 

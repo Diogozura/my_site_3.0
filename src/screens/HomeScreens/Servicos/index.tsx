@@ -1,4 +1,3 @@
-import { faTelegram } from "@fortawesome/free-brands-svg-icons";
 import { faFeatherPointed, faGauge, faGaugeHigh, faLaptopCode, faScrewdriverWrench } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
